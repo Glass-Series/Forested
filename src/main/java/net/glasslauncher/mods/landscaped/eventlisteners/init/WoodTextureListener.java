@@ -49,5 +49,35 @@ public class WoodTextureListener {
         LandscapedBlocks.Wood.wenge.setTextures(terrain.addTexture(NAMESPACE.id("block/wood/heart/wenge")).index, terrain.addTexture(NAMESPACE.id("block/wood/bark/wenge")).index);
         LandscapedBlocks.Wood.willow.setTextures(terrain.addTexture(NAMESPACE.id("block/wood/heart/willow")).index, terrain.addTexture(NAMESPACE.id("block/wood/bark/willow")).index);
         LandscapedBlocks.Wood.zebrawood.setTextures(terrain.addTexture(NAMESPACE.id("block/wood/heart/zebrawood")).index, terrain.addTexture(NAMESPACE.id("block/wood/bark/zebrawood")).index);
+
+        LandscapedBlocks.Planks.acacia.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/acacia")).index;
+        LandscapedBlocks.Planks.balsa.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/balsa")).index;
+        LandscapedBlocks.Planks.baobab.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/baobab")).index;
+        LandscapedBlocks.Planks.cherry.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/cherry")).index;
+        LandscapedBlocks.Planks.chestnut.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/chestnut")).index;
+        LandscapedBlocks.Planks.citrus.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/citrus")).index;
+        LandscapedBlocks.Planks.cocobolo.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/cocobolo")).index;
+        LandscapedBlocks.Planks.ebony.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/ebony")).index;
+        LandscapedBlocks.Planks.giganteum.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/giganteum")).index;
+        LandscapedBlocks.Planks.greenheart.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/greenheart")).index;
+        LandscapedBlocks.Planks.ipe.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/ipe")).index;
+        LandscapedBlocks.Planks.kapok.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/kapok")).index;
+        LandscapedBlocks.Planks.larch.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/larch")).index;
+        LandscapedBlocks.Planks.lime.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/lime")).index;
+        LandscapedBlocks.Planks.mahoe.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/mahoe")).index;
+        LandscapedBlocks.Planks.mahogany.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/mahogany")).index;
+        LandscapedBlocks.Planks.maple.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/maple")).index;
+        LandscapedBlocks.Planks.padauk.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/padauk")).index;
+        LandscapedBlocks.Planks.palm.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/palm")).index;
+        LandscapedBlocks.Planks.papaya.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/papaya")).index;
+        LandscapedBlocks.Planks.pine.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/pine")).index;
+        LandscapedBlocks.Planks.plum.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/plum")).index;
+        LandscapedBlocks.Planks.poplar.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/poplar")).index;
+        LandscapedBlocks.Planks.sequoia.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/sequoia")).index;
+        LandscapedBlocks.Planks.teak.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/teak")).index;
+        LandscapedBlocks.Planks.walnut.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/walnut")).index;
+        LandscapedBlocks.Planks.wenge.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/wenge")).index;
+        LandscapedBlocks.Planks.willow.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/willow")).index;
+        LandscapedBlocks.Planks.zebrawood.textureId = terrain.addTexture(NAMESPACE.id("block/wood/planks/zebrawood")).index;
     }
 }

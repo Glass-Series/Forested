@@ -60,6 +60,12 @@ public class ThickOakGen extends Feature {
 
         world.setBlockWithoutNotifyingNeighbors(x, y - 1, z, Block.DIRT.id);
 
+        placeLogs(world, x, y, z, treeHeight);
+        placeLogs(world, x - 1, y, z, stumpHeight.provide(random));
+        placeLogs(world, x + 1, y, z, stumpHeight.provide(random));
+        placeLogs(world, x, y, z - 1, stumpHeight.provide(random));
+        placeLogs(world, x, y, z + 1, stumpHeight.provide(random));
+
         for(int placingY = y - leafLayerCountGetter.provide(random) + treeHeight; placingY <= y + treeHeight; ++placingY) {
             int leafLayer = placingY - (y + treeHeight);
             int leafRadiusShrink = leafRadiusShrinkGetter.apply(random, leafLayer);
@@ -75,19 +81,13 @@ public class ThickOakGen extends Feature {
                 }
             }
         }
-        placeLogs(world, x, y, z, treeHeight);
-        placeLogs(world, x - 1, y, z, stumpHeight.provide(random));
-        placeLogs(world, x + 1, y, z, stumpHeight.provide(random));
-        placeLogs(world, x, y, z - 1, stumpHeight.provide(random));
-        placeLogs(world, x, y, z + 1, stumpHeight.provide(random));
 
         return true;
     }
 
     private void placeLogs(World world, int x, int y, int z, int height) {
         for (int relativeY = 0; relativeY < height; ++relativeY) {
-            int foundBlockId = world.getBlockId(x, y + relativeY, z);
-            if (TreeGenHelpers.isReplaceableByLogs(foundBlockId)) {
+            if (TreeGenHelpers.isReplaceableByLogs(world.getBlockState(x, y + relativeY, z))) {
                 world.setBlockWithoutNotifyingNeighbors(x, y + relativeY, z, trunk.id);
             }
         }

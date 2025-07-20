@@ -64,4 +64,68 @@ public class LandscapedBlocks {
         public static LandscapedLeavesBlock willow;
         public static LandscapedLeavesBlock zebrawood;
     }
+
+    public static class Planks {
+        public static LandscapedPlanksBlock acacia;
+        public static LandscapedPlanksBlock balsa;
+        public static LandscapedPlanksBlock baobab;
+        public static LandscapedPlanksBlock cherry;
+        public static LandscapedPlanksBlock chestnut;
+        public static LandscapedPlanksBlock citrus;
+        public static LandscapedPlanksBlock cocobolo;
+        public static LandscapedPlanksBlock ebony;
+        public static LandscapedPlanksBlock giganteum;
+        public static LandscapedPlanksBlock greenheart;
+        public static LandscapedPlanksBlock ipe;
+        public static LandscapedPlanksBlock kapok;
+        public static LandscapedPlanksBlock larch;
+        public static LandscapedPlanksBlock lime;
+        public static LandscapedPlanksBlock mahoe;
+        public static LandscapedPlanksBlock mahogany;
+        public static LandscapedPlanksBlock maple;
+        public static LandscapedPlanksBlock padauk;
+        public static LandscapedPlanksBlock palm;
+        public static LandscapedPlanksBlock papaya;
+        public static LandscapedPlanksBlock pine;
+        public static LandscapedPlanksBlock plum;
+        public static LandscapedPlanksBlock poplar;
+        public static LandscapedPlanksBlock sequoia;
+        public static LandscapedPlanksBlock teak;
+        public static LandscapedPlanksBlock walnut;
+        public static LandscapedPlanksBlock wenge;
+        public static LandscapedPlanksBlock willow;
+        public static LandscapedPlanksBlock zebrawood;
+    }
+
+    public static class Sapling {
+        public static LandscapedSaplingBlock acacia;
+        public static LandscapedSaplingBlock balsa;
+        public static LandscapedSaplingBlock baobab;
+        public static LandscapedSaplingBlock cherry;
+        public static LandscapedSaplingBlock chestnut;
+        public static LandscapedSaplingBlock citrus;
+        public static LandscapedSaplingBlock cocobolo;
+        public static LandscapedSaplingBlock ebony;
+        public static LandscapedSaplingBlock giganteum;
+        public static LandscapedSaplingBlock greenheart;
+        public static LandscapedSaplingBlock ipe;
+        public static LandscapedSaplingBlock kapok;
+        public static LandscapedSaplingBlock larch;
+        public static LandscapedSaplingBlock lime;
+        public static LandscapedSaplingBlock mahoe;
+        public static LandscapedSaplingBlock mahogany;
+        public static LandscapedSaplingBlock maple;
+        public static LandscapedSaplingBlock padauk;
+        public static LandscapedSaplingBlock palm;
+        public static LandscapedSaplingBlock papaya;
+        public static LandscapedSaplingBlock pine;
+        public static LandscapedSaplingBlock plum;
+        public static LandscapedSaplingBlock poplar;
+        public static LandscapedSaplingBlock sequoia;
+        public static LandscapedSaplingBlock teak;
+        public static LandscapedSaplingBlock walnut;
+        public static LandscapedSaplingBlock wenge;
+        public static LandscapedSaplingBlock willow;
+        public static LandscapedSaplingBlock zebrawood;
+    }
 }

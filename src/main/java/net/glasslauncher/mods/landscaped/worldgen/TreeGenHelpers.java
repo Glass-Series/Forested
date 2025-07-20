@@ -1,13 +1,12 @@
 package net.glasslauncher.mods.landscaped.worldgen;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.modificationstation.stationapi.api.registry.BlockRegistry;
+import net.modificationstation.stationapi.api.block.BlockState;
 
 import java.util.Objects;
 
 public class TreeGenHelpers {
-    public static boolean isReplaceableByLogs(int blockId) {
-        return blockId == 0 || !Block.BLOCKS_OPAQUE[blockId] || Objects.requireNonNull(BlockRegistry.INSTANCE.get(blockId)).material == Material.LEAVES;
+    public static boolean isReplaceableByLogs(BlockState state) {
+        return state.isAir() || !state.isOpaque() || state.getMaterial() == Material.LEAVES;
     }
 }

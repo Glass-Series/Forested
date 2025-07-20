@@ -23,7 +23,9 @@
       "net.glasslauncher.mods.landscaped.eventlisteners.init.BlockInit",
       "net.glasslauncher.mods.landscaped.eventlisteners.init.WoodTextureListener",
       "net.glasslauncher.mods.landscaped.eventlisteners.init.LeavesTextureListener",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.TreeGenerationInit"
+      "net.glasslauncher.mods.landscaped.eventlisteners.init.TreeGenerationInit",
+      "net.glasslauncher.mods.landscaped.eventlisteners.init.GenericRecipes",
+      "net.glasslauncher.mods.landscaped.eventlisteners.init.SaplingInit"
     ],
     "stationapi:event_bus_client": [
     ],

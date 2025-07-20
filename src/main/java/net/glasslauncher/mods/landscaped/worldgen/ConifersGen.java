@@ -81,6 +81,12 @@ public class ConifersGen extends Feature {
         int leavesConsiderdAfterTop = leavesConsideredAfterTopGetter.provide(random);
         int leavesSoFar = 0;
 
+        for (int relativeY = 0; relativeY < treeHeight - treeTrunkReduction; relativeY++) {
+            if (TreeGenHelpers.isReplaceableByLogs(world.getBlockState(x, y + relativeY, z))) {
+                world.setBlockWithoutNotifyingNeighbors(x, y + relativeY, z, trunk.id, 1);
+            }
+        }
+
         for (int relativeY = 0; relativeY <= trunkHeight; relativeY++) {
             int placingY = y + treeHeight - relativeY;
 
@@ -108,13 +114,6 @@ public class ConifersGen extends Feature {
                 }
             } else {
                 currentLeafRadius++;
-            }
-        }
-
-        for (int relativeY = 0; relativeY < treeHeight - treeTrunkReduction; relativeY++) {
-            int foundBlockId = world.getBlockId(x, y + relativeY, z);
-            if (foundBlockId == 0 || !Block.BLOCKS_OPAQUE[foundBlockId]) {
-                world.setBlockWithoutNotifyingNeighbors(x, y + relativeY, z, trunk.id, 1);
             }
         }
 

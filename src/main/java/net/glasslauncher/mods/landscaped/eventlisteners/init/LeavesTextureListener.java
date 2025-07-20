@@ -56,5 +56,35 @@ public class LeavesTextureListener {
         LandscapedBlocks.Leaves.wenge.textureId = deciduous;
         LandscapedBlocks.Leaves.willow.textureId = willow;
         LandscapedBlocks.Leaves.zebrawood.textureId = jungle;
+
+        LandscapedBlocks.Sapling.acacia.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/acacia")).index;
+        LandscapedBlocks.Sapling.balsa.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/balsa")).index;
+        LandscapedBlocks.Sapling.baobab.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/baobab")).index;
+        LandscapedBlocks.Sapling.cherry.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/cherry")).index;
+        LandscapedBlocks.Sapling.chestnut.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/chestnut")).index;
+        LandscapedBlocks.Sapling.citrus.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/citrus")).index;
+        LandscapedBlocks.Sapling.cocobolo.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/cocobolo")).index;
+        LandscapedBlocks.Sapling.ebony.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/ebony")).index;
+        LandscapedBlocks.Sapling.giganteum.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/giganteum")).index;
+        LandscapedBlocks.Sapling.greenheart.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/greenheart")).index;
+        LandscapedBlocks.Sapling.ipe.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/ipe")).index;
+        LandscapedBlocks.Sapling.kapok.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/kapok")).index;
+        LandscapedBlocks.Sapling.larch.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/larch")).index;
+        LandscapedBlocks.Sapling.lime.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/lime")).index;
+        LandscapedBlocks.Sapling.mahoe.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/mahoe")).index;
+        LandscapedBlocks.Sapling.mahogany.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/mahogany")).index;
+        LandscapedBlocks.Sapling.maple.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/maple")).index;
+        LandscapedBlocks.Sapling.padauk.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/padauk")).index;
+        LandscapedBlocks.Sapling.palm.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/palm")).index;
+        LandscapedBlocks.Sapling.papaya.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/papaya")).index;
+        LandscapedBlocks.Sapling.pine.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/pine")).index;
+        LandscapedBlocks.Sapling.plum.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/plum")).index;
+        LandscapedBlocks.Sapling.poplar.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/poplar")).index;
+        LandscapedBlocks.Sapling.sequoia.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/sequoia")).index;
+        LandscapedBlocks.Sapling.teak.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/teak")).index;
+        LandscapedBlocks.Sapling.walnut.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/walnut")).index;
+        LandscapedBlocks.Sapling.wenge.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/wenge")).index;
+        LandscapedBlocks.Sapling.willow.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/willow")).index;
+        LandscapedBlocks.Sapling.zebrawood.textureId = terrain.addTexture(NAMESPACE.id("block/sapling/zebrawood")).index;
     }
 }

@@ -1,22 +1,9 @@
 package net.glasslauncher.mods.landscaped.blocks;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.glasslauncher.mods.gcapi3.api.CharacterUtils;
-import net.glasslauncher.mods.landscaped.worldgen.CustomTreeProvider;
 import net.glasslauncher.mods.landscaped.worldgen.TreeType;
-import net.minecraft.block.Block;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.modificationstation.stationapi.api.block.BlockState;
-import net.modificationstation.stationapi.api.block.States;
-import net.modificationstation.stationapi.api.registry.tag.BlockTags;
-import net.modificationstation.stationapi.api.template.block.TemplateLeavesBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
-import net.modificationstation.stationapi.api.util.math.Direction;
 
 import java.awt.*;
 import java.util.Random;

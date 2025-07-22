@@ -4,7 +4,6 @@ import net.glasslauncher.mods.landscaped.worldgen.LandscapedTreeFeature;
 import net.glasslauncher.mods.landscaped.worldgen.TreeType;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.mine_diver.unsafeevents.listener.ListenerPriority;
-import net.minecraft.world.gen.feature.Feature;
 import net.modificationstation.stationapi.api.event.world.biome.BiomeRegisterEvent;
 
 import java.util.ArrayList;

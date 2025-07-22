@@ -1,7 +1,5 @@
 package net.glasslauncher.mods.landscaped.blocks;
 
-import net.glasslauncher.mods.landscaped.Landscaped;
-import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.template.block.TemplateLogBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 

@@ -3,7 +3,6 @@ package net.glasslauncher.mods.landscaped.worldgen;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 

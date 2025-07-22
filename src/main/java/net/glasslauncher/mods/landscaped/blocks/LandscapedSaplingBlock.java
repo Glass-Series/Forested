@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import net.glasslauncher.mods.landscaped.worldgen.TreeType;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.Feature;
 import net.modificationstation.stationapi.api.block.HasCustomBlockItemFactory;
 import net.modificationstation.stationapi.api.template.block.TemplateSaplingBlock;
 import net.modificationstation.stationapi.api.util.Identifier;

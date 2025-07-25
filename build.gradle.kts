@@ -1,17 +1,10 @@
-import net.glasslauncher.gradleplugin.resourcegen.CableResourceGenHelper
-import net.glasslauncher.gradleplugin.resourcegen.ResourceGenPatternTargets
-import org.gradle.internal.extensions.stdlib.toDefaultLowerCase
 import org.gradle.kotlin.dsl.modImplementation
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import java.net.URI
-import java.net.URL
 
 plugins {
 	id("maven-publish")
 	id("fabric-loom") version "1.10.5"
 	id("babric-loom-extension") version "1.10.1"
-	id("resourceGen")
 }
 
 repositories {
@@ -63,12 +56,6 @@ loom {
 			server()
 			configurations.transitiveImplementation
 		}
-	}
-}
-
-glassResourceGen {
-	patternTargets = ResourceGenPatternTargets.create {
-//		it.addAll(CableResourceGenHelper.create("iron"))
 	}
 }
 

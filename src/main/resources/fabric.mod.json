@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Landscaped",
-  "description": "A simple partial port of forestry to b1.7.3 StationAPI.",
+  "description": "A simple backport of forestry's wood and tree types to b1.7.3 StationAPI. Includes an API for adding more trees to the game without clashing with vanilla generation.",
   "authors": [
     "calmilamsy"
   ],

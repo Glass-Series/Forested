@@ -30,6 +30,9 @@
     "stationapi:event_bus_client": [
     ],
     "stationapi:event_bus_server": [
+    ],
+    "gcapi3": [
+      "net.glasslauncher.mods.landscaped.LandscapedConfig"
     ]
   },
   "mixins": [

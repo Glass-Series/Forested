@@ -3,6 +3,7 @@ package net.glasslauncher.mods.landscaped.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
+import net.glasslauncher.mods.landscaped.LandscapedConfig;
 import net.glasslauncher.mods.landscaped.registries.TreeRegistry;
 import net.glasslauncher.mods.landscaped.registries.TreeRegistryEntry;
 import net.glasslauncher.mods.landscaped.util.BlankFeature;
@@ -35,6 +36,9 @@ public class ChunkGenMixin {
 
     @ModifyConstant(method = "decorate", constant = @Constant(intValue = 0, ordinal = 10))
     private int makeDesertsSpawnTrees(int constant, @Local Biome biome, @Local(ordinal = 4) int treeSample) {
+        if (!LandscapedConfig.WORLDGEN_CONFIG.generateTrees) {
+            return constant;
+        }
         int extraChance = 0;
 
         if ((biome == Biome.DESERT || biome == Biome.PLAINS || biome == Biome.TUNDRA) && random.nextInt(100) == 0) {
@@ -44,9 +48,12 @@ public class ChunkGenMixin {
         return extraChance;
     }
 
-    @Redirect(method = "decorate", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/biome/Biome;getRandomTreeFeature(Ljava/util/Random;)Lnet/minecraft/world/gen/feature/Feature;"))
-    public Feature getCustomTree(Biome biome, Random random) {
-        TreeRegistryEntry feature = TreeRegistry.INSTANCE.getTree(random, biome);
+    @WrapOperation(method = "decorate", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/biome/Biome;getRandomTreeFeature(Ljava/util/Random;)Lnet/minecraft/world/gen/feature/Feature;"))
+    public Feature getCustomTree(Biome instance, Random random, Operation<Feature> original) {
+        if (!LandscapedConfig.WORLDGEN_CONFIG.generateTrees) {
+            return original.call(instance, random);
+        }
+        TreeRegistryEntry feature = TreeRegistry.INSTANCE.getTree(random, instance);
         return feature == null ? BLANK_FEATURE : feature.getFeature();
     }
 }

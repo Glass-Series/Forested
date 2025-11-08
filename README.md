@@ -1,4 +1,4 @@
-# Landscaped
+# Forested
 A simple-ish mod that adds tree crossbreeding and multiple new wood types, along with a few miscellaneous landscaping related additions.
 
 Most textures are taken from the amazing forestry mod.

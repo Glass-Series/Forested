@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "landscaped",
+  "id": "forested",
   "version": "${version}",
 
-  "name": "Landscaped",
+  "name": "Forested",
   "description": "A simple backport of forestry's wood and tree types to b1.7.3 StationAPI. Includes an API for adding more trees to the game without clashing with vanilla generation.",
   "authors": [
     "calmilamsy"
@@ -14,29 +14,29 @@
   },
 
   "license": "LGPLV3",
-  "icon": "assets/landscaped/icon.png",
+  "icon": "assets/forested/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "net.glasslauncher.mods.landscaped.Landscaped",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.BlockInit",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.WoodTextureListener",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.LeavesTextureListener",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.TreeGenerationInit",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.GenericRecipes",
-      "net.glasslauncher.mods.landscaped.eventlisteners.init.SaplingInit"
+      "net.glasslauncher.mods.forested.Forested",
+      "net.glasslauncher.mods.forested.eventlisteners.init.BlockInit",
+      "net.glasslauncher.mods.forested.eventlisteners.init.WoodTextureListener",
+      "net.glasslauncher.mods.forested.eventlisteners.init.LeavesTextureListener",
+      "net.glasslauncher.mods.forested.eventlisteners.init.TreeGenerationInit",
+      "net.glasslauncher.mods.forested.eventlisteners.init.GenericRecipes",
+      "net.glasslauncher.mods.forested.eventlisteners.init.SaplingInit"
     ],
     "stationapi:event_bus_client": [
     ],
     "stationapi:event_bus_server": [
     ],
     "gcapi3": [
-      "net.glasslauncher.mods.landscaped.LandscapedConfig"
+      "net.glasslauncher.mods.forested.ForestedConfig"
     ]
   },
   "mixins": [
-    "landscaped.mixins.json"
+    "forested.mixins.json"
   ],
 
   "depends": {

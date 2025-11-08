@@ -41,7 +41,7 @@ sourceSets {
 }
 
 loom {
-//	accessWidenerPath = file("src/main/resources/landscaped.accesswidener")
+//	accessWidenerPath = file("src/main/resources/forested.accesswidener")
 
 	runs {
 		// If you want to make a testmod for your mod, right click on src, and create a new folder with the same name as source() below.

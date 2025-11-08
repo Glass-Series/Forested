@@ -1,0 +1,137 @@
+package net.glasslauncher.mods.forested.worldgen.tree;
+
+import lombok.RequiredArgsConstructor;
+import net.glasslauncher.mods.forested.util.RandomIntProvider;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.Feature;
+import net.modificationstation.stationapi.api.registry.BlockRegistry;
+import net.modificationstation.stationapi.api.util.math.Vec3i;
+
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
+import java.util.Set;
+import java.util.function.BiFunction;
+
+import static net.glasslauncher.mods.forested.worldgen.tree.TreeGenHelpers.DEFAULT_SOILS;
+
+@RequiredArgsConstructor
+public class CherryGen extends Feature implements ForestedTreeFeature {
+    protected final Block trunk;
+    protected final Block leaves;
+    protected final RandomIntProvider treeHeightGetter; // random.nextInt(3) + 4
+    protected final BiFunction<Random, Integer, Integer> leafRadiusShrinkGetter; // 1 - leafLayer / 2
+    protected final RandomIntProvider leafLayerCountGetter; // 3
+    protected final RandomIntProvider branchCountGetter;
+    protected final RandomIntProvider branchLengthGetter;
+    protected final BiFunction<Random, Integer, Integer> branchHeightGetter; // tree height given
+    protected final Map<Block, CustomSoilPlacer> soils;
+
+    public CherryGen(Block trunk, Block leaves, RandomIntProvider treeHeightGetter, BiFunction<Random, Integer, Integer> leafRadiusShrinkGetter, RandomIntProvider leafLayerCountGetter, RandomIntProvider branchCountGetter, RandomIntProvider branchLengthGetter, BiFunction<Random, Integer, Integer> branchHeightGetter) {
+        this.trunk = trunk;
+        this.leaves = leaves;
+        this.treeHeightGetter = treeHeightGetter;
+        this.leafRadiusShrinkGetter = leafRadiusShrinkGetter;
+        this.leafLayerCountGetter = leafLayerCountGetter;
+        this.branchCountGetter = branchCountGetter;
+        this.branchLengthGetter = branchLengthGetter;
+        this.branchHeightGetter = branchHeightGetter;
+        soils = DEFAULT_SOILS;
+    }
+
+    @Override
+    public boolean generate(World world, Random random, int x, int y, int z) {
+        int treeHeight = treeHeightGetter.provide(random);
+        if (y + treeHeight + 1 > world.getTopY()) {
+            return false;
+        }
+
+        int supportingBlockId = world.getBlockId(x, y - 1, z);
+        CustomSoilPlacer soilPlacer = soils.get(BlockRegistry.INSTANCE.getOrThrow(supportingBlockId));
+        if (soilPlacer == null || y >= world.getTopY() - treeHeight - 1) {
+            return false;
+        }
+
+        for(int checkingY = y; checkingY <= y + 1 + treeHeight; ++checkingY) {
+            if (checkingY < world.getTopY()) {
+                int foundBlockId = world.getBlockId(x, checkingY, z);
+                if (foundBlockId != 0 && Objects.requireNonNull(BlockRegistry.INSTANCE.get(foundBlockId)).material == Material.LEAVES) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        soilPlacer.placeSoil(world, random, x, y - 1, z);
+
+        for(int relativeY = 0; relativeY < treeHeight; ++relativeY) {
+            if (TreeGenHelpers.isReplaceableByLogs(world.getBlockState(x, y + relativeY, z))) {
+                world.setBlockWithoutNotifyingNeighbors(x, y + relativeY, z, trunk.id);
+            }
+        }
+
+        generateLeaves(world, random, x, y + treeHeight, z);
+
+        for (int branchIndex = 0; branchIndex < branchCountGetter.provide(random); branchIndex++) {
+            int branchY = y + branchHeightGetter.apply(random, treeHeight);
+            int currentX = x;
+            int currentZ = z;
+            int branchLength = branchLengthGetter.provide(random);
+            for (int branchStep = 0; branchStep < branchLength; branchStep++) {
+                boolean xOrZ = random.nextBoolean();
+                boolean negativeOrPositive = random.nextBoolean();
+                boolean isDiagonal = random.nextBoolean();
+
+                Vec3i vector = new Vec3i(xOrZ ? negativeOrPositive ? -1 : 1 : 0, 0, xOrZ ? 0 : negativeOrPositive ? -1 : 1);
+                if (isDiagonal) {
+                    boolean diagonalNegativeOrPositive = random.nextBoolean();
+                    vector = vector.add(xOrZ ? 0 : diagonalNegativeOrPositive ? -1 : 1, 0, xOrZ ? diagonalNegativeOrPositive ? -1 : 1 : 0);
+                }
+
+                currentX += vector.getX();
+                currentZ += vector.getZ();
+
+                boolean couldPlaceBranch = TreeGenHelpers.isReplaceableByLogs(world.getBlockState(currentX, branchY, currentZ));
+                if (couldPlaceBranch) {
+                    world.setBlockWithoutNotifyingNeighbors(currentX, branchY, currentZ, trunk.id);
+                }
+                if (branchStep + 1 == branchLength || !couldPlaceBranch) {
+                    generateLeaves(world, random, currentX, branchY + 1, currentZ);
+                }
+                if (!couldPlaceBranch) {
+                    break;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    protected void generateLeaves(World world, Random random, int x, int y, int z) {
+        for(int placingY = y - leafLayerCountGetter.provide(random); placingY <= y; ++placingY) {
+            int leafLayer = placingY - y;
+            int leafRadiusShrink = leafRadiusShrinkGetter.apply(random, leafLayer);
+
+            for(int placingX = x - leafRadiusShrink; placingX <= x + leafRadiusShrink; ++placingX) {
+                int mirroredX = placingX - x;
+
+                for(int placingZ = z - leafRadiusShrink; placingZ <= z + leafRadiusShrink; ++placingZ) {
+                    int mirroredZ = placingZ - z;
+                    if ((Math.abs(mirroredX) != leafRadiusShrink || Math.abs(mirroredZ) != leafRadiusShrink || random.nextInt(2) != 0 && leafLayer != 0) && !Block.BLOCKS_OPAQUE[world.getBlockId(placingX, placingY, placingZ)]) {
+                        world.setBlockWithoutNotifyingNeighbors(placingX, placingY, placingZ, leaves.id);
+                    }
+                }
+            }
+        }
+
+        TreeGenHelpers.updateGeneratedLeaves(world, x, y, z);
+    }
+
+    @Override
+    public Set<Block> getSoils() {
+        return soils.keySet();
+    }
+}

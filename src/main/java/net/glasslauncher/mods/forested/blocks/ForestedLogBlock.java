@@ -31,6 +31,6 @@ public class ForestedLogBlock extends TemplateLogBlock {
 
     @Override
     public int getDroppedItemId(int blockMeta, Random random) {
-        return id;
+        return asItem().id;
     }
 }
